@@ -24,8 +24,7 @@ $(document).ready(function(){
     var name = $("input#name").val();
     var initialDeposit = parseFloat($("input#init-deposit").val()).toFixed(2);
     var newBankAccount = new BankAccount(name, initialDeposit, initialDeposit)
-    console.log(newBankAccount);
-    console.log(initialDeposit);
+
     $(".balance").text(newBankAccount.balance);
   });
 
@@ -34,8 +33,17 @@ $(document).ready(function(){
 
     var deposit = parseFloat($("input#deposit").val()).toFixed(2);
     var withdrawal = parseFloat($("input#withdrawal").val()).toFixed(2);
-    console.log(deposit);
-    console.log(withdrawal);
+
+    if ((deposit !== "NaN") && (withdrawal !== "NaN")) {
+      alert("Only fill in one field per transaction.")
+    } else if (deposit !== "NaN"){
+      console.log("deposit")
+    } else if (withdrawal !== "NaN") {
+      console.log("withdrawal")
+     else {
+       console.log("transaction error");
+       return ("transaction error");
+     }
   });
 
 });
