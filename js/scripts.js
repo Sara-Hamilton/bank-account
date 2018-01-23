@@ -22,16 +22,18 @@ $(document).ready(function(){
     event.preventDefault();
 
     var name = $("input#name").val();
-    var initialDeposit = parseInt($("input#init-deposit").val());
-    console.log(name);
+    var initialDeposit = parseFloat($("input#init-deposit").val()).toFixed(2);
+    var newBankAccount = new BankAccount(name, initialDeposit, initialDeposit)
+    console.log(newBankAccount);
     console.log(initialDeposit);
+    $(".balance").text(newBankAccount.balance);
   });
 
   $("#transactionForm").submit(function(event){
     event.preventDefault();
 
-    var deposit = $("input#deposit").val();
-    var withdrawal = $("input#withdrawal").val();
+    var deposit = parseFloat($("input#deposit").val()).toFixed(2);
+    var withdrawal = parseFloat($("input#withdrawal").val()).toFixed(2);
     console.log(deposit);
     console.log(withdrawal);
   });
