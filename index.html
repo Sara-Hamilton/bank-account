@@ -5,9 +5,47 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title></title>
+    <title>Bank Account</title>
   </head>
   <body>
+    <div class="container">
+      <h2>Welcome to the Bank of No Return</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <form id="register-form">
+            <h3>Register a New Account!</h3>
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input id="name" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="init-deposit">Initial Deposit:</label>
+            <input id="init-deposit" class="form-control" type="number" min="0">
+          </div>
+          <button type="submit" class="btn btn-primary">Create New Account</button>
+          </form>
+        </div>
 
+        <div class="col-md-6">
+          <form id="transaction-form">
+            <h3>Deposit or Withdraw Funds</h3>
+            <div class="form-group">
+              <label for="deposit">Deposit Amount:</label>
+              <input id="deposit" class="form-control" type="number" min="0">
+            </div>
+            <div class="form-group">
+              <label for="withdrawal">Withdrawal Amount:</label>
+              <input id="withdrawal" class="form-control" type="number" min="0">
+            </div>
+            <button type="submit" class="btn btn-primary">Transact</button>
+          </form>
+        </div>
+
+        <div class="col-md-12">
+        <h3>Current Balance: </h3>
+
+        </div>
+      </div>
+    </div>
   </body>
 </html>
