@@ -6,11 +6,11 @@ function BankAccount (owner, firstDeposit, balance) {
 }
 
 BankAccount.prototype.deposit = function(amount) {
-  return (this.balance + amount);
+  return (parseFloat(this.balance) + parseFloat(amount));
 }
 
 BankAccount.prototype.withdrawal = function(amount) {
-  return (this.balance - amount);
+  return (parseFloat(this.balance) - parseFloat(amount));
 }
 
 
@@ -26,24 +26,28 @@ $(document).ready(function(){
     var newBankAccount = new BankAccount(name, initialDeposit, initialDeposit)
 
     $(".balance").text(newBankAccount.balance);
-  });
+  // });
 
   $("#transactionForm").submit(function(event){
     event.preventDefault();
 
-    var deposit = parseFloat($("input#deposit").val()).toFixed(2);
-    var withdrawal = parseFloat($("input#withdrawal").val()).toFixed(2);
+    var depositAmount = parseFloat($("input#deposit").val()).toFixed(2);
+    var withdrawalAmount = parseFloat($("input#withdrawal").val()).toFixed(2);
 
-    if ((deposit !== "NaN") && (withdrawal !== "NaN")) {
+    if ((depositAmount !== "NaN") && (withdrawalAmount !== "NaN")) {
       alert("Only fill in one field per transaction.")
-    } else if (deposit !== "NaN"){
-      console.log("deposit")
-    } else if (withdrawal !== "NaN") {
+    } else if (depositAmount !== "NaN"){
+      var newBalance = newBankAccount.deposit(depositAmount);
+      $(".balance").text(newBalance.toFixed(2));
+    } else if (withdrawalAmount !== "NaN") {
+      var newBalance = newBankAccount.withdrawal(withdrawalAmount);
+      $(".balance").text(newBalance.toFixed(2));
       console.log("withdrawal")
-     else {
+    } else {
        console.log("transaction error");
        return ("transaction error");
      }
+  });
   });
 
 });
